@@ -9,8 +9,8 @@ module.exports = new Command({
     async run(message, args, client) {
         const embed = new Discord.MessageEmbed();
         let messageArgs = args.splice(1).join(" ");
-        let logs = client.channels.cache.get('894915496888115250') // Change channel ID later on!
-        let pickups = client.channels.cache.get('894713654824534037') // Change channel ID later on!
+        let logs = client.channels.cache.get('799765423268429875') // Change channel ID later on!
+        let pickups = client.channels.cache.get('771435458898690079') // Change channel ID later on!
         let op = message.author
 
 
@@ -33,7 +33,7 @@ module.exports = new Command({
         
         const filter = (reaction, user) => {
             return ["✅", "❌"].includes(reaction.emoji.name) &&
-            message.guild.members.cache.get(user.id).roles.cache.find(r => r.id === "894572142073634856"); //Change role ID later on!
+            message.guild.members.cache.get(user.id).roles.cache.find(r => r.id === "771439121368350760"); //Change role ID later on!
             
         };
 
