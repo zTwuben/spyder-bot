@@ -47,7 +47,7 @@ module.exports = new Command({
             if (reaction.emoji.name === accept) {
                 const newmsg =  await logs.send({ embeds:  [embed] });
                 const member = reaction.users.cache.find((user) => !user.bot);
-                newmsg.reply({ content: `Request has been accepted by ${member}`}); 
+                newmsg.reply({ content: `${op} Your request has been accepted by ${member}`}); 
 
                 newmsg.react(accept)
                 const collector2 = newmsg.createReactionCollector({ filter, max: 1 });
