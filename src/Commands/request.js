@@ -36,7 +36,7 @@ module.exports = new Command({
         
         const filter = (reaction, user) => {
             return [accept, deny].includes(reaction.emoji.name) &&
-            message.guild.members.cache.get(user.id).roles.cache.find(r => r.id === "771439121368350760"); //Change role ID later on!
+            message.guild.members.cache.get(user.id).roles.cache.find(r => r.id === "771439121368350760" || r.id === "910912204637876225"); //Change role ID later on!
         };
 
 
