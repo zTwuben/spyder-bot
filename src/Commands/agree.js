@@ -16,6 +16,7 @@ module.exports = new Command({
 
         //Function
 
+        message.delete()
         message.member.roles.add(verifiedRole)
     }
 })
