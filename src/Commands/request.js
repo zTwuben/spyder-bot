@@ -14,6 +14,7 @@ module.exports = new Command({
         let embed = new Discord.MessageEmbed();
         let messageArgs = args.splice(1).join(" ").split(",").map(elem => elem.trim());
         let [type, size, theme, text, font, additional_info] = messageArgs
+        let attachment = await message.attachments.first()
         let officialDesigner = '771439121368350760'
         let apprenticeDesigner = '910912204637876225'
         let logs = client.channels.cache.get('799765423268429875') // Change channel ID later on!
@@ -34,6 +35,7 @@ module.exports = new Command({
         embed.setTitle(`${message.author.username} request`)
             .setDescription('Request information can be found below!')
             .setAuthor(message.author.username, message.author.avatarURL({ dynamic: true }))
+            .setImage(attachment)
             .setColor('#f5d22e')
             .setFooter('Made by Twuben 🌟 - Requests V2')
             .addField(`Type`,`${type}`)

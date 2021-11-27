@@ -12,6 +12,7 @@ module.exports = new Command({
         let embed = new Discord.MessageEmbed();
         let messageArgs = args.splice(1).join(" ").split(',').map(elem => elem.trim());
         let [title, option1, option2, option3, option4, option5, option6] = messageArgs;
+        let attachment = await message.attachments.first()
         let roleID = '902656496867872799' // Change ID
 
         let circlesArray = ['🟢', '🟠', '🟣', '🟡', '🔴', '⚪']
@@ -27,6 +28,7 @@ module.exports = new Command({
         embed.setTitle(`Poll: ${title}`)
             .setAuthor(message.author.username, message.author.avatarURL({ dynamic: true }))
             .setDescription('To vote please react with any of the emojis listed below')
+            .setImage(attachment)
             for (let i = 1; i < messageArgs.length; i++){
                 embed.addField(`${circlesArray[i]}: ${messageArgs[i]}`, '\u200B')
             }
