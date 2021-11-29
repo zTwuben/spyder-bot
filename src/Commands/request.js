@@ -23,12 +23,12 @@ module.exports = new Command({
 
 
         //Errors
-        if (!type) return message.channel.send('**Please specify a type of design**\nExample > *-request __Logo__, size, theme, text, font, Additional Info*');
-        if (!size) return message.channel.send('**Please specify a size**\nExample > *-request type, __512x512__, theme, text, font, Additional Info*');
-        if (!theme) return message.channel.send('**Please specify a theme**\nExample > *-request type, size, __None__, text, font, Additional Info*');
-        if (!text) return message.channel.send('**Please specify a text**\nExample > *-request type, size, theme, __Im the best__, font, Additional Info*');
-        if (!font) return message.channel.send('**Please specify a font**\nExample > *-request type, size, theme, text, __None__, Additional Info*');
-        if (!additional_info) return message.channel.send('**Please specify additional information**\nExample > *-request type, size, theme, text, font, __None__*');
+        if (!type) return message.channel.send('**Please specify a type of design**\nExample > *-request __Logo__, size, theme, text, font, Additional Info*').then(message.delete());
+        if (!size) return message.channel.send('**Please specify a size**\nExample > *-request type, __512x512__, theme, text, font, Additional Info*').then(message.delete());
+        if (!theme) return message.channel.send('**Please specify a theme**\nExample > *-request type, size, __None__, text, font, Additional Info*').then(message.delete());
+        if (!text) return message.channel.send('**Please specify a text**\nExample > *-request type, size, theme, __Im the best__, font, Additional Info*').then(message.delete());
+        if (!font) return message.channel.send('**Please specify a font**\nExample > *-request type, size, theme, text, __None__, Additional Info*').then(message.delete());
+        if (!additional_info) return message.channel.send('**Please specify additional information**\nExample > *-request type, size, theme, text, font, __None__*').then(message.delete());
 
         //Function
 
