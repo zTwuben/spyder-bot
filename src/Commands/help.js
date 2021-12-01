@@ -23,8 +23,6 @@ module.exports = new Command({
             )
                
         //Error
-        author.send("Here's your guide").catch(() => message.channel.send('**Cannot send a direct message, please allow me to do so!**'));  //Send embed and catches if dm's are closed!
         author.send({ embeds: [embed]}).catch(() => message.channel.send('**Cannot send a direct message, please allow me to do so!**'));  //Send embed and catches if dm's are closed!
-
     }
 })
