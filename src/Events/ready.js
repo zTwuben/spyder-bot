@@ -7,5 +7,5 @@ module.exports = new Event("ready", (client) => {
         activities: [{ name: 'Prefix is: -', type: 'COMPETING'}],
         status: 'online',
     })
-    await Mongoose.connect('mongodb+srv://twuben:%40DJmix224@cluster0.1qmgg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { keepAlive: true })
+    await Mongoose.connect(process.env.MONGO_URI, { keepAlive: true })
 });
