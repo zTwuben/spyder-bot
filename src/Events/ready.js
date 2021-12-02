@@ -7,5 +7,5 @@ module.exports = new Event("ready", (client) => {
         activities: [{ name: 'Prefix is: -', type: 'COMPETING'}],
         status: 'online',
     })
-    await Mongoose.connect(process.env.MONGO_URI, { keepAlive: true })
+    Mongoose.connect(process.env.MONGO_URI, { keepAlive: true })
 });
