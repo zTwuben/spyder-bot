@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/TwubenFR/spyder-bot#readme",
   "dependencies": {
-    "discord.js": "^13.3.0-dev.1633608187.d32956c"
+    "discord.js": "^13.3.0-dev.1633608187.d32956c",
+    "mongoose": "^6.0.14"
   }
 }

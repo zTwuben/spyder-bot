@@ -1,5 +1,6 @@
 const Command = require("../Structures/Command.js");
 const Discord = require('discord.js');
+const requestsDB = require('../DataBase/requestsDB.js');
 
 const accept = '✅';
 const deny = '❌';
@@ -53,6 +54,15 @@ module.exports = new Command({
 
         msg.react(accept);
         msg.react(deny);
+        let msgID = msg.id;
+        let msgURL = msg.url;
+
+        //Saves a new request to the DB
+        const newRequest = await requestsDB.create({
+            request_id: msgID,
+            request_url: msgURL,
+            isAccepted: false
+        })
 
         //Creates filter to prevent non-allowed users of accepting
 
@@ -68,7 +78,13 @@ module.exports = new Command({
         collector.on('collect', async (reaction, user) => {
             if (reaction.emoji.name === accept) {
                 const newmsg = await logs.send({ embeds: [embed] });
-                const member = reaction.users.cache.find((user) => !user.bot);
+                const member = reaction.users.cache.find((user) => !user.bot );
+                
+                //Updates Database
+                const requestData = await requestsDB.findOne({ request_id: msgID })
+                const update = { isAccepted: true }
+                await requestData.updateOne(update)                
+                
                 newmsg.reply({ content: `Request has been accepted by ${member}`});
 
                 newmsg.react(accept)
