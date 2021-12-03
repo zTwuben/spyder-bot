@@ -78,7 +78,7 @@ module.exports = new Command({
         collector.on('collect', async (reaction, user) => {
             if (reaction.emoji.name === accept) {
                 const newmsg = await logs.send({ embeds: [embed] });
-                const member = reaction.users.cache.find((user) => !user.bot );
+                const member = reaction.users.cache.find((user) => !user.bot && message.guild.members.cache.get(user.id).roles.cache.find(r => r.id === officialDesigner || r.id === apprenticeDesigner));
                 
                 //Updates Database
                 const requestData = await requestsDB.findOne({ request_id: msgID })
@@ -92,7 +92,8 @@ module.exports = new Command({
 
                 collector2.on('collect', async (reaction, user) =>{
                     if(reaction.emoji.name === '✅'){
-                        pickups.send({ content: `Request has been finished ${op}, pick it up here!`})
+                        const designer = reaction.users.cache.find((user) => !user.bot && message.guild.members.cache.get(user.id).roles.cache.find(r => r.id === officialDesigner || r.id === apprenticeDesigner));
+                        pickups.send({ content: `Request has been finished by ${designer}, ${op} you pick it up here!`})
                     }
                 })
             } else if (reaction.emoji.name === deny) {
