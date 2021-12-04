@@ -98,6 +98,11 @@ module.exports = new Command({
                 })
             } else if (reaction.emoji.name === deny) {
                 const Deniedmsg = msg.reply({ content: `Your request has been denied ${op}, have you followed the template?`});
+               
+                //Updates Database
+                const requestData = await requestsDB.findOne({ request_id: msgID })
+                const update = { isAccepted: true }
+                await requestData.updateOne(update)  
             }
         })
     }
