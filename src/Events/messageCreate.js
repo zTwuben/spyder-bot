@@ -1,6 +1,6 @@
 const Event = require("../Structures/Event.js");
 
-const config = require("../Data/config.json");
+const config = require("../Data/prefixFile.json");
 
 module.exports = new Event("messageCreate", (client, message) => {
     
