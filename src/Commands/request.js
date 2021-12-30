@@ -61,7 +61,8 @@ module.exports = new Command({
         const newRequest = await requestsDB.create({
             request_id: msgID,
             request_url: msgURL,
-            isAccepted: false
+            isAccepted: false,
+            designerAccepted: false
         })
 
         //Creates filter to prevent non-allowed users of accepting
@@ -102,7 +103,9 @@ module.exports = new Command({
                 //Updates Database
                 const requestData = await requestsDB.findOne({ request_id: msgID })
                 const update = { isAccepted: true }
-                await requestData.updateOne(update)  
+                const update2 = { designerAccepted: true }
+                await requestData.updateOne(update)
+                await requestData.updateOne(update2)    
             }
         })
     }

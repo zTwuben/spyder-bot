@@ -7,6 +7,10 @@ const requestsSchema = new mongoose.Schema({
     isAccepted: {
         type: mongoose.SchemaTypes.Boolean,
         required: true,
+    },
+    designerAccepted: {
+        type: mongoose.SchemaTypes.Boolean,
+        required: true,
     }
 })
 
