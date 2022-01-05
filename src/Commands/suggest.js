@@ -54,7 +54,7 @@ module.exports = new Command({
         const collector = sentEmbed.createReactionCollector({ filter });
 
         collector.on('collect', async (reaction, user) => {
-            if (sentEmbed.reactions.cache.get(upvote).count > 10 && sentEmbed.reactions.cache.get(downvote).count < 10 ){ //Amount of people in the community that need to agree on the suggestion
+            if (sentEmbed.reactions.cache.get(upvote).count > 5 && sentEmbed.reactions.cache.get(downvote).count < 5 ){ //Amount of people in the community that need to agree on the suggestion
                 sentEmbed.reply(`The community has agreed that they want to see this suggestion included in the server! ${roleID}`)
             }
         })
